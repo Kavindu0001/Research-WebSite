@@ -6,11 +6,22 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Header & Navigation */
@@ -583,370 +594,77 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Responsive Design - Complete Mobile-First Responsive */
+/* =====================================================
+   RESPONSIVE DESIGN
+   Breakpoints: ≤1024px | ≤768px | ≤480px | ≤360px
+   ===================================================== */
 
-/* Extra Large Devices (1440px and up) */
-@media (min-width: 1440px) {
-    main {
-        max-width: 1340px;
-    }
-    .page-title {
-        font-size: 48px;
-    }
-    .hero-section {
-        padding: 80px 40px;
-    }
-    .hero-section h1 {
-        font-size: 56px;
-    }
-}
-
-/* Large Devices (1200px - 1439px) */
-@media (max-width: 1200px) and (min-width: 1025px) {
-    .hero-content {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .presentations-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* Medium-Large (1024px - 1199px) */
+/* ---- Tablet & small desktop (≤1024px) ---- */
 @media (max-width: 1024px) {
     main {
-        padding: 0 15px;
+        padding: 0 16px;
     }
     .page-title {
-        font-size: 38px;
+        font-size: 36px;
+    }
+    .hero-section {
+        padding: 50px 20px;
     }
     .hero-section h1 {
-        font-size: 42px;
-    }
-    .hero-section p {
-        font-size: 16px;
-    }
-    .hero-content {
-        gap: 25px;
-    }
-    .card {
-        padding: 25px;
+        font-size: 40px;
     }
     nav ul {
-        gap: 20px;
+        gap: 18px;
     }
     .members-section .team-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    .milestones-container {
-        max-width: 700px;
-    }
     .domain-grid {
         grid-template-columns: repeat(2, 1fr);
     }
     .presentations-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* Tablets (768px - 1023px) */
+/* ---- Tablet: hamburger activates (≤768px) ---- */
 @media (max-width: 768px) {
-    header {
-        padding: 15px 0;
-    }
-    .header-container {
-        flex-direction: row;
-        gap: 15px;
-        padding: 0 15px;
-    }
-    .logo {
-        font-size: 24px;
-    }
-    .hamburger-menu {
-        display: flex;
-    }
-    nav {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        z-index: 999;
-    }
-    nav.active {
-        max-height: 400px;
-    }
-    nav ul {
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        padding: 20px 0;
-    }
-    nav ul li {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    nav ul li:last-child {
-        border-bottom: none;
-    }
-    nav a {
-        font-size: 14px;
-        padding: 15px 20px;
-        display: block;
-        transition: background 0.3s ease;
-    }
-    nav a:hover {
-        background: rgba(52, 152, 219, 0.2);
-        color: #3498db;
-    }
-    nav a.active {
-        border-bottom: none;
-        padding-bottom: 15px;
-        background: rgba(52, 152, 219, 0.15);
-        color: #3498db;
-    }
-
-    main {
-        margin: 25px auto;
-        padding: 0 15px;
-    }
-    .page-title {
-        font-size: 32px;
-        margin-bottom: 25px;
-    }
-    .page-subtitle {
-        font-size: 14px;
-        margin-bottom: 20px;
-    }
-    .hero-section {
-        padding: 40px 20px;
-        border-radius: 6px;
-        margin-bottom: 30px;
-    }
-    .hero-section h1 {
-        font-size: 32px;
-        margin-bottom: 15px;
-    }
-    .hero-section p {
-        font-size: 15px;
-        margin-bottom: 12px;
-    }
-    .hero-content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    .card {
-        padding: 20px;
-        border-radius: 6px;
-    }
-    .card h3 {
-        font-size: 18px;
-    }
-    .card p {
-        font-size: 14px;
-    }
-    .domain-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .domain-card {
-        padding: 20px;
-    }
-    .domain-card h3 {
-        font-size: 18px;
-    }
-    .domain-card p {
-        font-size: 14px;
-    }
-    .milestones-container {
-        max-width: 100%;
-    }
-    .milestone {
-        padding: 20px;
-        margin-bottom: 20px;
-    }
-    .milestone h3 {
-        font-size: 18px;
-    }
-    .milestone p {
-        font-size: 14px;
-    }
-    .documents-list {
-        max-width: 100%;
-    }
-    .document-item {
-        padding: 15px;
-        flex-direction: column;
-        gap: 12px;
-    }
-    .document-item h3 {
-        font-size: 16px;
-    }
-    .document-item a {
-        width: 100%;
-        text-align: center;
-        padding: 8px 15px;
-    }
-    .presentations-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    .presentation-icon {
-        font-size: 40px;
-        padding: 30px;
-    }
-    .presentation-card h3 {
-        font-size: 16px;
-        padding: 15px;
-    }
-    .team-grid {
-        gap: 20px;
-    }
-    .supervisors-section .team-grid {
-        grid-template-columns: 1fr;
-    }
-    .members-section .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .member-info {
-        padding: 15px;
-    }
-    .member-info h3 {
-        font-size: 15px;
-    }
-    .member-role {
-        font-size: 11px;
-    }
-    .member-email {
-        font-size: 12px;
-    }
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-    .contact-info,
-    .contact-form {
-        padding: 20px;
-    }
-    .contact-form h3,
-    .contact-info h3 {
-        font-size: 18px;
-    }
-    .form-group input,
-    .form-group textarea {
-        padding: 10px;
-        font-size: 14px;
-    }
-    .submit-btn {
-        padding: 10px 30px;
-        font-size: 14px;
-    }
-    footer {
-        padding: 25px 15px;
-        margin-top: 40px;
-    }
-    footer p {
-        font-size: 14px;
-    }
-}
-
-/* Large Phones (640px - 767px) */
-@media (max-width: 767px) and (min-width: 641px) {
-    main {
-        margin: 20px auto;
-    }
-    .page-title {
-        font-size: 28px;
-        margin-bottom: 20px;
-    }
-    .page-subtitle {
-        font-size: 13px;
-    }
-    .hero-section {
-        padding: 30px 15px;
-    }
-    .hero-section h1 {
-        font-size: 28px;
-    }
-    .hero-section p {
-        font-size: 14px;
-    }
-    .hero-content {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    .card {
-        padding: 18px;
-    }
-    .domain-grid {
-        gap: 15px;
-    }
-    .presentations-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    .presentation-icon {
-        font-size: 35px;
-        padding: 25px;
-    }
-    .members-section .team-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    .member-info {
-        padding: 12px;
-    }
-    .member-info h3 {
-        font-size: 14px;
-    }
-    .contact-info,
-    .contact-form {
-        padding: 18px;
-    }
-    .form-group input,
-    .form-group textarea {
-        padding: 8px;
-    }
-}
-
-/* Small Phones (480px - 639px) */
-@media (max-width: 640px) {
-    * {
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
-    }
+    /* Header */
     header {
         padding: 12px 0;
     }
     .header-container {
-        gap: 12px;
-        padding: 0 12px;
+        padding: 0 16px;
     }
     .logo {
-        font-size: 20px;
+        font-size: 22px;
     }
+
+    /* Hamburger button */
     .hamburger-menu {
         display: flex;
     }
+
+    /* Collapsed nav */
     nav {
         position: fixed;
-        top: 60px;
+        top: 56px;
         left: 0;
         width: 100%;
         background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease;
+        transition: max-height 0.35s ease;
         z-index: 999;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
     nav.active {
-        max-height: 600px;
+        max-height: 440px;
     }
     nav ul {
         flex-direction: column;
         gap: 0;
-        width: 100%;
-        padding: 15px 0;
+        padding: 10px 0;
     }
     nav ul li {
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -955,285 +673,294 @@ footer a:hover {
         border-bottom: none;
     }
     nav a {
-        font-size: 12px;
-        padding: 12px 15px;
         display: block;
-        transition: background 0.3s ease;
+        padding: 14px 20px;
+        font-size: 14px;
+        transition: background 0.2s ease;
     }
     nav a:hover {
         background: rgba(52, 152, 219, 0.2);
         color: #3498db;
     }
     nav a.active {
-        border-bottom: none;
-        padding-bottom: 12px;
         background: rgba(52, 152, 219, 0.15);
         color: #3498db;
+        border-bottom: none;
+        padding-bottom: 14px;
     }
+
+    /* Main layout */
     main {
-        margin: 15px auto;
-        padding: 0 12px;
+        margin: 24px auto;
+        padding: 0 16px;
     }
     .page-title {
-        font-size: 24px;
-        margin-bottom: 15px;
-    }
-    .page-subtitle {
-        font-size: 12px;
-        margin-bottom: 15px;
-    }
-    .hero-section {
-        padding: 25px 12px;
-        border-radius: 5px;
+        font-size: 28px;
         margin-bottom: 20px;
     }
+    .page-subtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    /* Hero */
+    .hero-section {
+        padding: 36px 16px;
+        margin-bottom: 24px;
+    }
     .hero-section h1 {
-        font-size: 24px;
+        font-size: 28px;
         margin-bottom: 12px;
     }
     .hero-section p {
-        font-size: 13px;
-        margin-bottom: 10px;
+        font-size: 15px;
+        margin-bottom: 12px;
     }
+
+    /* Cards */
     .hero-content {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        margin-top: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 24px;
     }
     .card {
-        padding: 15px;
-        border-radius: 5px;
+        padding: 20px;
     }
-    .card h3 {
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-    .card p {
-        font-size: 13px;
-        line-height: 1.5;
-    }
+
+    /* Domain */
     .domain-grid {
-        gap: 12px;
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
     .domain-card {
-        padding: 15px;
-        border-left: 4px solid #3498db;
+        padding: 20px;
     }
-    .domain-card h3 {
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-    .domain-card p {
-        font-size: 12px;
-    }
+
+    /* Milestones */
     .milestones-container {
-        padding: 0;
+        max-width: 100%;
     }
     .milestone {
-        padding: 15px;
-        margin-bottom: 15px;
-        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 16px;
     }
-    .milestone-date {
-        padding: 8px 12px;
-        font-size: 12px;
-    }
-    .milestone h3 {
-        font-size: 16px;
-        margin-bottom: 8px;
-    }
-    .milestone p {
-        font-size: 12px;
-    }
+
+    /* Documents */
     .documents-list {
         max-width: 100%;
     }
     .document-item {
-        padding: 12px;
-        border-radius: 5px;
-    }
-    .document-item h3 {
-        font-size: 14px;
-        margin-bottom: 10px;
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
     }
     .document-item a {
-        font-size: 12px;
-        padding: 8px 15px;
+        width: 100%;
+        text-align: center;
     }
+
+    /* Slides */
     .presentations-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
     }
-    .presentation-card {
-        border-radius: 5px;
+
+    /* About Us */
+    .supervisors-section .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
     }
-    .presentation-icon {
-        font-size: 30px;
-        padding: 20px;
-    }
-    .presentation-card h3 {
-        font-size: 14px;
-        padding: 12px;
-        margin-bottom: 8px;
-    }
-    .presentation-card a {
-        font-size: 12px;
-        padding: 8px 20px;
-        margin-bottom: 15px;
-    }
-    .supervisors-section,
-    .members-section {
-        margin-bottom: 30px;
+    .members-section .team-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
     .supervisors-section h2,
     .members-section h2 {
-        font-size: 24px;
-        margin-bottom: 20px;
-        padding-bottom: 12px;
+        font-size: 26px;
     }
-    .supervisors-section .team-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    .members-section .team-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    .team-member {
-        border-radius: 8px;
-    }
-    .member-image {
-        border-radius: 8px 8px 0 0;
-    }
-    .member-info {
-        padding: 12px;
-        border-radius: 0 0 8px 8px;
-    }
-    .member-info h3 {
-        font-size: 13px;
-        margin-bottom: 5px;
-    }
-    .member-role {
-        font-size: 10px;
-        margin-bottom: 6px;
-    }
-    .member-email {
-        font-size: 11px;
-        margin-bottom: 5px;
-    }
-    .member-department,
-    .member-id {
-        font-size: 10px;
-        margin-top: 3px;
-    }
+
+    /* Contact */
     .contact-content {
+        grid-template-columns: 1fr;
         gap: 20px;
     }
     .contact-info,
     .contact-form {
-        padding: 15px;
-        border-radius: 5px;
+        padding: 20px;
+    }
+    .submit-btn {
+        width: 100%;
+        padding: 13px 20px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 24px 16px;
+        margin-top: 40px;
+    }
+}
+
+/* ---- Mobile (≤480px) ---- */
+@media (max-width: 480px) {
+    .header-container {
+        padding: 0 12px;
+    }
+    .logo {
+        font-size: 18px;
+    }
+    nav {
+        top: 50px;
+    }
+    nav.active {
+        max-height: 500px;
+    }
+    nav a {
+        font-size: 13px;
+        padding: 12px 16px;
+    }
+
+    main {
+        margin: 16px auto;
+        padding: 0 12px;
+    }
+    .page-title {
+        font-size: 22px;
+        margin-bottom: 16px;
+    }
+    .page-subtitle {
+        font-size: 12px;
+    }
+
+    .hero-section {
+        padding: 24px 12px;
+        border-radius: 6px;
+    }
+    .hero-section h1 {
+        font-size: 22px;
+    }
+    .hero-section p {
+        font-size: 13px;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 16px;
+    }
+    .card {
+        padding: 16px;
+    }
+    .card h3 {
+        font-size: 16px;
+    }
+
+    .domain-card {
+        padding: 16px;
+    }
+    .domain-card h3 {
+        font-size: 16px;
+    }
+    .domain-card p {
+        font-size: 13px;
+    }
+
+    .milestone {
+        padding: 16px;
+    }
+    .milestone-date {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+    .milestone h3 {
+        font-size: 16px;
+    }
+    .milestone p {
+        font-size: 13px;
+    }
+
+    .document-item h3 {
+        font-size: 14px;
+    }
+
+    .presentations-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .presentation-icon {
+        font-size: 36px;
+        padding: 24px;
+    }
+    .presentation-card h3 {
+        font-size: 15px;
+        padding: 14px;
+    }
+
+    .supervisors-section h2,
+    .members-section h2 {
+        font-size: 22px;
+    }
+    .supervisors-section .team-grid {
+        grid-template-columns: 1fr;
+    }
+    .members-section .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .member-info {
+        padding: 12px;
+    }
+    .member-info h3 {
+        font-size: 13px;
+    }
+    .member-role {
+        font-size: 10px;
+    }
+    .member-email {
+        font-size: 11px;
+    }
+    .member-department,
+    .member-id {
+        font-size: 10px;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 16px;
     }
     .contact-form h3,
     .contact-info h3 {
         font-size: 16px;
-        margin-bottom: 15px;
-    }
-    .contact-item {
-        margin-bottom: 15px;
-        padding-bottom: 15px;
-    }
-    .contact-item strong {
-        font-size: 13px;
-    }
-    .contact-item p {
-        font-size: 12px;
-    }
-    .form-group {
-        margin-bottom: 15px;
-    }
-    .form-group label {
-        font-size: 13px;
-        margin-bottom: 6px;
     }
     .form-group input,
     .form-group textarea {
+        /* 16px prevents iOS auto-zoom on focus */
+        font-size: 16px;
         padding: 10px;
-        font-size: 14px;
-        border-radius: 4px;
     }
     .form-group textarea {
         min-height: 120px;
     }
-    .submit-btn {
-        width: 100%;
-        padding: 12px 20px;
-        font-size: 14px;
-        border-radius: 4px;
-    }
+
     footer {
         padding: 20px 12px;
         margin-top: 30px;
     }
     footer p {
         font-size: 12px;
-        margin: 6px 0;
-    }
-    footer a {
-        font-size: 12px;
     }
 }
 
-/* Extra Small (below 480px) */
-@media (max-width: 479px) {
-    header {
-        padding: 10px 0;
-    }
-    .header-container {
-        gap: 10px;
-        padding: 0 10px;
-    }
+/* ---- Very small phones (≤360px) ---- */
+@media (max-width: 360px) {
     .logo {
-        font-size: 18px;
+        font-size: 16px;
     }
-    .hamburger-menu {
-        display: flex;
+    .page-title {
+        font-size: 20px;
     }
-    .hamburger-menu span {
-        width: 23px;
-        height: 2.5px;
+    .hero-section h1 {
+        font-size: 20px;
     }
-    nav {
-        position: fixed;
-        top: 55px;
-        left: 0;
-        width: 100%;
-        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        z-index: 999;
+    .members-section .team-grid {
+        grid-template-columns: 1fr;
     }
-    nav.active {
-        max-height: 500px;
-    }
-    nav ul {
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        padding: 12px 0;
-    }
-    nav ul li {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    nav a {
-        font-size: 11px;
-        padding: 10px 12px;
-        display: block;
-    }
-    nav a:hover {
-        background: rgba(52, 152, 219, 0.2);
-    }
-    nav a.active {
-        background: rgba(52, 152, 219, 0.15);
-    }
+}
