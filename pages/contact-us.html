@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | BusTransport Research</title>
     <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init({ publicKey: "bXEoBbyquAf4kUZ4l" });
+        })();
+    </script>
 </head>
 <body>
     <!-- Header & Navigation -->
@@ -81,7 +87,9 @@
             <div class="contact-form">
                 <h3>✉️ Send us a Message</h3>
 
-                <form action="#" method="POST">
+                <div id="form-status" style="display:none; padding: 12px 16px; border-radius: 6px; margin-bottom: 16px; font-weight: 500;"></div>
+
+                <form id="contact-form">
                     <div class="form-group">
                         <label for="name">Name *</label>
                         <input type="text" id="name" name="name" required>
@@ -94,7 +102,7 @@
 
                     <div class="form-group">
                         <label for="subject">Subject *</label>
-                        <input type="text" id="subject" name="subject" required>
+                        <input type="text" id="subject" name="title" required>
                     </div>
 
                     <div class="form-group">
@@ -102,7 +110,7 @@
                         <textarea id="message" name="message" required></textarea>
                     </div>
 
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    <button type="submit" class="submit-btn" id="submit-btn">Send Message</button>
                 </form>
 
                 <p style="margin-top: 15px; color: #7f8c8d; font-size: 14px;">
@@ -118,5 +126,38 @@
         <p>For more information, please contact us using the details provided above.</p>
     </footer>
     <script src="../assets/js/navbar.js"></script>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var btn = document.getElementById('submit-btn');
+            var status = document.getElementById('form-status');
+
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            status.style.display = 'none';
+
+            emailjs.sendForm('service_xrik11d', 'template_sauuu83', this)
+                .then(function() {
+                    status.textContent = '✅ Message sent successfully! We will get back to you within 24 hours.';
+                    status.style.background = '#d4edda';
+                    status.style.color = '#155724';
+                    status.style.border = '1px solid #c3e6cb';
+                    status.style.display = 'block';
+                    document.getElementById('contact-form').reset();
+                    btn.disabled = false;
+                    btn.textContent = 'Send Message';
+                }, function(error) {
+                    status.textContent = '❌ Failed to send message. Please try again or contact us directly.';
+                    status.style.background = '#f8d7da';
+                    status.style.color = '#721c24';
+                    status.style.border = '1px solid #f5c6cb';
+                    status.style.display = 'block';
+                    btn.disabled = false;
+                    btn.textContent = 'Send Message';
+                    console.error('EmailJS error:', error);
+                });
+        });
+    </script>
 </body>
 </html>
